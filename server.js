@@ -1,6 +1,8 @@
 const express = require('express')
 const helmet = require('helmet')
 
+const logger = require('./middleware/logger-middleware')
+
 const server = express()
 
 const characterRouter = require('./api/characters-router')
@@ -13,7 +15,7 @@ server.get('/', (req, res) => {
   res.send(`<h2>Welcome to sean's practice server!</h2>`)
 })
 
-server.use('/api/characters', characterRouter)
+// server.use('/api/characters', characterRouter)
 server.use('/api/shows', showsRouter)
 
 module.exports = server
